@@ -28,6 +28,12 @@ public class ServiceIMP implements StudentServiceI{
 		// TODO Auto-generated method stub
 		return sr.findAll();
 	}
+
+	@Override
+	public List<Student> SearchStudentByBatch(String batchNumber) {
+	   List<Student>t= sr.findByBatchNumber(batchNumber);
+		return t;
+	}
 	
 	
 }

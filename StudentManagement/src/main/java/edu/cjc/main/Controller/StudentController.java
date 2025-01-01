@@ -46,4 +46,20 @@ StudentServiceI st;
 	}
 	
 	
+	
+	@RequestMapping("/search")
+	public String getBatchStudent(@RequestParam("batchNumber") String batchNumber , Model m) {
+		List<Student>list=	st.SearchStudentByBatch(batchNumber);
+		if(list.size()>0) {
+		m.addAttribute("data", list);
+		}else {
+			List<Student> student= st.getAlldata();
+			m.addAttribute("data",student);
+			m.addAttribute("No record Available in batch,'"+batchNumber+"'....!");
+		}
+		return "adminscreen";
 	}
+	
+
+}
+
